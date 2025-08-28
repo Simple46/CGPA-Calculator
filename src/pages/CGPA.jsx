@@ -21,7 +21,8 @@ export default function CGPA() {
         )}
           </button>
 
-          <h1> CGPA</h1>
+      <h1> CGPA</h1>
+      <input/>
           <p>Add below</p>
           </div>
   );
