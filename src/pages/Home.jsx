@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '../assets/ThemeContext';
+import Image from './Image';
 
 
 
@@ -26,6 +27,7 @@ export default function Home() {
           <Moon className="w-6 h-6 text-blue-600" />
         )}
       </button>
+      <Image className="w-40 transition" />
 
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
@@ -55,6 +57,13 @@ export default function Home() {
           CGPA Calculator
         </motion.button>
       </div>
+      <p
+        className={`absolute bottom-3 ${
+          darkMode ? "text-gray-400" : "text-gray-600"
+        } `}
+      >
+        Developed By Hissa, FUHSI 400L ITH Student
+      </p>
     </div>
   );
 }

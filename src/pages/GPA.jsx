@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Sun, Moon, Plus, Trash2 } from "lucide-react";
 import { useTheme } from "../assets/ThemeContext";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import Image from "./Image";
+import {Link} from "react-router-dom"
 
 const gradePoints = {
   A: 5,
@@ -44,9 +46,13 @@ export default function GPA() {
     return (
       <div
         className={`min-h-screen flex flex-col items-center justify-center transition-colors duration-500 ${
-          darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
+          darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
         } `}
       >
+        <Link to="/">
+        <Image className="absolute top-2 left-2 w-20 transition cursor-pointer " />
+        </Link>
+
         <button
           onClick={toggleTheme}
           className="absolute top-5 right-5 p-2 rounded-full transition hover:scale-110"
@@ -157,15 +163,19 @@ export default function GPA() {
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: gpa / 5 }}
-              transition={{duration:1}}
+              transition={{ duration: 1 }}
             />
 
             <defs>
-              <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <linearGradient
+                id="blueGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
                 <stop offset="0%" stopColor="#3b82f6" />
                 <stop offset="100%" stopColor="#1e40af" />
-                
-
               </linearGradient>
             </defs>
           </motion.svg>
@@ -175,10 +185,10 @@ export default function GPA() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-          className="mt-4 text-2xl font-bold">
+            className="mt-4 text-2xl font-bold"
+          >
             GPA: {gpa}
           </motion.p>
-
         </div>
       </div>
     );
